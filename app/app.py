@@ -20,7 +20,7 @@ def pong():
             return jsonify(success=True)
         return jsonify(success=False), 500
     if request.method == 'GET':
-        return str(os.environ.get('TOKEN'))
+        return "pong!"
 
 
 if __name__ == "__main__":
