@@ -20,5 +20,4 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /config/nginx.conf /etc/nginx/sites-enabled/
 RUN ln -s /config/supervisor.conf /etc/supervisor/conf.d/
 
-EXPOSE 8000
-CMD ["supervisord", "-n"]
+CMD python app/app.py
