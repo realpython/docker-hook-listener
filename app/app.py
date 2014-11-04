@@ -6,6 +6,11 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 
+@app.route('/')
+def index():
+    return 'Test!'
+
+
 @app.route('/ping', methods=['POST'])
 def pong():
     if request.method == 'POST':
