@@ -16,7 +16,7 @@ def pong():
     if request.method == 'POST':
         token = request.args.get('token')
         if str(token) == str(os.environ.get('TOKEN')):
-            subprocess.call("deploy.sh", shell=True)
+            subprocess.call("app/deploy.sh", shell=True)
             return jsonify(success=True)
         return jsonify(success=False), 500
     if request.method == 'GET':
@@ -24,4 +24,4 @@ def pong():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

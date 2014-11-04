@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo test
 docker pull mjhea0/flask-docker-workflow
 docker stop flask
 docker rm flask
