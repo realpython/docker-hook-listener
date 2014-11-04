@@ -10,4 +10,5 @@ RUN pip install flask
 # update working directories
 ADD ./app /app
 
+CMD chmod +x app/deploy.sh
 CMD python app/app.py

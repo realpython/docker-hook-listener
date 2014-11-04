@@ -16,7 +16,7 @@ def pong():
     if request.method == 'POST':
         token = request.args.get('token')
         if str(token) == str(os.environ.get('TOKEN')):
-            subprocess.call("app/deploy.sh", shell=True)
+            subprocess.call("app/deploy.sh")
             return jsonify(success=True)
         return jsonify(success=False), 500
     if request.method == 'GET':
