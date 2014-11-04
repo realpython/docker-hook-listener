@@ -13,11 +13,4 @@ RUN pip3 install uwsgi flask
 ADD ./app /app
 ADD ./config /config
 
-# setup config
-RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
-RUN rm /etc/nginx/sites-enabled/default
-
-RUN ln -s /config/nginx.conf /etc/nginx/sites-enabled/
-RUN ln -s /config/supervisor.conf /etc/supervisor/conf.d/
-
 CMD python app/app.py
