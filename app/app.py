@@ -11,15 +11,16 @@ def index():
     return 'Test!'
 
 
-@app.route('/ping', methods=['POST'])
+@app.route('/ping', methods=['GET', 'POST'])
 def pong():
     if request.method == 'POST':
         token = request.args.get('token')
-        return str(os.environ.get('TOKEN'))
         if str(token) == str(os.environ.get('TOKEN')):
             subprocess.call("deploy.sh", shell=True)
             return jsonify(success=True)
         return jsonify(success=False), 500
+    if request.method == 'GET':
+        return str(os.environ.get('TOKEN'))
 
 
 if __name__ == "__main__":
