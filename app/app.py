@@ -15,6 +15,7 @@ def index():
 def pong():
     if request.method == 'POST':
         token = request.args.get('token')
+        print os.environ.get('TOKEN')
         if str(token) == str(os.environ.get('TOKEN')):
             subprocess.call("deploy.sh", shell=True)
             return jsonify(success=True)
@@ -22,4 +23,4 @@ def pong():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
