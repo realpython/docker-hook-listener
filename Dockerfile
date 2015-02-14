@@ -5,10 +5,11 @@ MAINTAINER Real Python <info@realpython.com>
 # install dependencies
 RUN apt-get update
 RUN apt-get install -y python-pip
-RUN pip install flask
 
 # update working directories
 ADD ./app /app
 
+RUN pip install -r requirements.txt
 CMD chmod +x app/deploy.sh
+CMD chmod +x app/fig.sh
 CMD python app/app.py
