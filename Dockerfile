@@ -9,7 +9,7 @@ RUN apt-get install -y python-pip
 # update working directories
 ADD ./app /app
 
-RUN pip install -r requirements.txt
+RUN pip install -r app/requirements.txt
 CMD chmod +x app/deploy.sh
 CMD chmod +x app/fig.sh
 CMD python app/app.py
